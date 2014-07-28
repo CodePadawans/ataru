@@ -6,10 +6,10 @@ require 'ataru/version'
 Gem::Specification.new do |spec|
   spec.name          = "ataru"
   spec.version       = Ataru::VERSION
-  spec.authors       = ["Magdalena"]
-  spec.email         = ["madziaf86@tlen.pl"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.authors       = ["Code_Padawans"]
+  spec.email         = ["hello@code-padawans.de"]
+  spec.summary       = %q{A documentation testing tool}
+  spec.description   = %q{A documentation testing tool}
   spec.homepage      = ""
   spec.license       = "MIT"
 
