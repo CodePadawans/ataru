@@ -11,7 +11,7 @@ end
 
 root.children.each do |child|
    if child.type == :p
-     code = child.children.each do |child|
+     child.children.each do |child|
        if child.type == :codespan
          puts child.value
        end
