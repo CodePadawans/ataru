@@ -5,5 +5,19 @@ doc = Kramdown::Document.new(text)
 root = doc.root
 contents = doc.root.children
 
-puts root.inspect
-puts contents.inspect
+root.children.each do |child|
+  puts child.type
+end
+
+root.children.each do |child|
+   if child.type == :p
+     code = child.children.each do |child|
+       if child.type == :codespan
+         puts child.value
+       end
+     end
+   end
+end
+
+#puts root.inspect
+#puts contents.inspect
