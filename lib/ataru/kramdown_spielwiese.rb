@@ -1,6 +1,9 @@
 require 'kramdown'
 
-text = File.read("blog-tutorial.md")
+text = File.read("test.md")
 doc = Kramdown::Document.new(text)
-puts doc.root.inspect
-puts doc.root.children.last.inspect
+root = doc.root
+contents = doc.root.children
+
+puts root.inspect
+puts contents.inspect
