@@ -1,4 +1,4 @@
-require 'markdown_loader.rb'
+require_relative 'markdown_loader'
 
 class Traverser
   def self.codespans(document)

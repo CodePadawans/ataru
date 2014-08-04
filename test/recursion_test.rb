@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'kramdown'
-require './lib/ataru/traverser.rb'
+require_relative "../lib/ataru/traverser"
 
 class RecursionTest < Minitest::Test
   def test_single_codespan
@@ -29,4 +29,3 @@ class RecursionTest < Minitest::Test
   # end
 
 end
-
