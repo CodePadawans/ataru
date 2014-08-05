@@ -5,10 +5,22 @@ class CodeExamples# < MiniTest::Test
   end
 
   def add_test_cases(code)
+    all_tests = []
     code.each_with_index do |snippet, index|
-      self.class.send(:define_method, "test_#{index}") do
-        eval(snippet)
+      current_test = self.class.send(:define_method, "test_#{index}") do
+        return_value = eval(snippet)
       end
+      all_tests << current_test
     end
+    p all_tests
+  end
+
+  def gather_methods
+
   end
 end
+
+c = CodeExamples.new
+c.add_test_cases(['puts "blah"', 'puts "omg"'])
+
+
