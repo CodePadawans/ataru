@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'kramdown'
 require_relative "../lib/ataru/traverser"
 
-class RecursionTest < Minitest::Test
+class TraverserTest < Minitest::Test
   def test_single_codespan
     doc = Kramdown::Document.new("`puts 'Hello'`")
     assert_equal "puts 'Hello'", Traverser.codespans(doc).first
