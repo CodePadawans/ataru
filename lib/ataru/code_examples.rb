@@ -6,12 +6,9 @@ class CodeExamples# < MiniTest::Test
 
   def add_test_cases(code)
     code.each_with_index do |snippet, index|
-      self.class.send(:define_method, "test_#{index}") do 
-        puts "i'm the snippet"
+      self.class.send(:define_method, "test_#{index}") do
+        eval(snippet)
       end
     end
   end
 end
-c = CodeExamples.new
-c.add_test_cases(["puts 'blah'"])
-c.test_0
