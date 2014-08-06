@@ -8,7 +8,7 @@ class CodeExamples# < MiniTest::Test
     all_tests = []
     code.each_with_index do |snippet, index|
       current_test = self.class.send(:define_method, "test_#{index}") do
-        return_value = eval(snippet)
+      return_value = eval(snippet)
       end
       all_tests << current_test
     end
