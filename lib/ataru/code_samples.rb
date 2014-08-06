@@ -1,23 +1,13 @@
-#require 'minitest/autorun'
-
-class CodeSamples# < MiniTest::Test
+class CodeSamples
 
   def add_test_cases(code_samples)
-    @all_tests = []
-    code_samples.each_with_index do |sample, index|
-      current_test = self.class.send(:define_method, "test_#{index}") do
-        return_value = eval(sample)
+    Class.new(MiniTest::Test) do
+      code_samples.each_with_index do |sample, index|
+        define_method("test_#{index}") do
+          eval(sample)
+        end
       end
-      @all_tests << current_test
-    end
-    p @all_tests
-  end
-
-  def run_test_methods 
-    @all_tests.each do |test|
-      self.send(test)
     end
   end
 end
-
 

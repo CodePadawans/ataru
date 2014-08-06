@@ -8,19 +8,19 @@ class CodeSamplesTest < MiniTest::Test
   end
   def test_empty_list
     list = []
-    @examples.add_test_cases(list)
-    assert_equal false, @examples.methods.include?(:test_0)
+    klass = @examples.add_test_cases(list)
+    assert_equal false, klass.new(nil).methods.include?(:test_0)
   end
 
   def test_one_code_example
     list = ["puts 'Hello world'"]
-    @examples.add_test_cases(list)
-    assert_equal true, @examples.methods.include?(:test_0)
+    klass = @examples.add_test_cases(list)
+    assert_equal true, klass.new(nil).methods.include?(:test_0)
   end
 
   def test_two_code_examples
     list = ["puts 'blah'", "puts 2 + 5"]
-    @examples.add_test_cases(list)
-    assert_equal true, @examples.methods.include?(:test_1)
+    klass = @examples.add_test_cases(list)
+    assert_equal true, klass.new(nil).methods.include?(:test_1)
   end
 end
