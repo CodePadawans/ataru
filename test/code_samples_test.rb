@@ -1,10 +1,10 @@
 require 'minitest/autorun'
 require 'kramdown'
-require_relative '../lib/ataru/code_examples'
+require_relative '../lib/ataru/code_samples'
 
-class CodeExamplesTest < MiniTest::Test
+class CodeSamplesTest < MiniTest::Test
   def setup
-    @examples = CodeExamples.new
+    @examples = CodeSamples.new
   end
   def test_empty_list
     list = []
