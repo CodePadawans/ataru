@@ -21,7 +21,3 @@ class CodeSamples# < MiniTest::Test
 end
 
 
-c = CodeSamples.new
-c.add_test_cases(['puts "blah"', 'puts "omg"'])
-c.run_test_methods
-
