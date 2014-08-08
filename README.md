@@ -1,3 +1,7 @@
+### Status
+[![Build Status](https://travis-ci.org/CodePadawans/ataru.png)](https://travis-ci.org/CodePadawans/ataru)
+
+
 # Ataru
 
 TODO: Write a gem description
