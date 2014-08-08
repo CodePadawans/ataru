@@ -7,7 +7,7 @@ class Traverser
   end
 
   def self.recurse(element)
-    output = []
+    code_samples = []
     element.children.each do |child|
       if child.type == :codespan
         code_samples << child.value
