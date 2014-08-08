@@ -7,15 +7,14 @@ class Traverser
   end
 
   def self.recurse(element)
-    output = []
+    code_samples = []
     element.children.each do |child|
-      puts "CHILD: #{child.value.inspect}"
       if child.type == :codespan
-        output << child.value
+        code_samples << child.value
       else
-        output += recurse(child)
+        code_samples += recurse(child)
       end
     end
-    output
+    code_samples
   end
 end
