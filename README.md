@@ -1,4 +1,4 @@
-| Project         | Ashikawa::Core
+| Project         | Ataru
 |:----------------|:--------------------------------------------------
 | CI              | [![Build Status](https://travis-ci.org/CodePadawans/ataru.svg?branch=master)](https://travis-ci.org/CodePadawans/ataru)
 | Gem Version     | [![Gem Version](https://badge.fury.io/rb/ataru.svg)](http://badge.fury.io/rb/ataru)
