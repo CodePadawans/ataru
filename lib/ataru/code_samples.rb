@@ -1,3 +1,5 @@
+require 'minitest'
+
 class CodeSamples
 
   def add_test_cases(code_samples)
