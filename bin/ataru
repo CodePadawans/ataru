@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
-require_relative 'markdown_loader'
-require_relative 'traverser'
-require_relative 'code_samples'
+require_relative '../lib/ataru/markdown_loader'
+require_relative '../lib/ataru/traverser'
+require_relative '../lib/ataru/code_samples'
 #puts "Welcome to Ataru! Ataru is a tool developed to test your documentation. Please write the name with the  of the markdown file, that you would like to have tested"
 file_name = ARGV[0]
 
