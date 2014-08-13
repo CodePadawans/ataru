@@ -23,7 +23,7 @@ document = load_file(file_name)
 #pulling an array of codespans/code samples from markdown document
 code_samples = Traverser.codespans(document)
 #wrapping code samples in minitest tests
-CodeSamples.new.add_test_cases(code_samples)
+CodeSamples.add_test_cases(code_samples)
 
 #now minitest has to run, after running it exits and we get the output to the terminal
 require 'minitest/autorun'
