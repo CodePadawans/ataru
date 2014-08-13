@@ -3,7 +3,8 @@ require_relative '../lib/ataru/markdown_loader'
 require_relative '../lib/ataru/traverser'
 require_relative '../lib/ataru/code_samples'
 #puts "Welcome to Ataru! Ataru is a tool developed to test your documentation. Please write the name with the  of the markdown file, that you would like to have tested"
-file_name = ARGV[0]
+#ARGV is an array which holds, as strings, each argument passed by the shell, so you can access any command line arguments in your Ruby programs via ARGV
+file_name = ARGV[0] 
 
 if file_name.nil?
   puts "ataru: please give the file name"
@@ -17,9 +18,13 @@ elsif File.file?(file_name) == false
   exit 3
 end
 
+#load_file global method from markdown_loader file
 document = load_file(file_name)
+#pulling an array of codespans/code samples from markdown document
 code_samples = Traverser.codespans(document)
+#wrapping code samples in minitest tests
 CodeSamples.new.add_test_cases(code_samples)
 
+#now minitest has to run, after running it exits and we get the output to the terminal
 require 'minitest/autorun'
 
