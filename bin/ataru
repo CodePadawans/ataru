@@ -12,24 +12,23 @@ if file_name.nil?
   puts "usage: ataru.rb <filename>"
   exit 1
 elsif !(file_name =~ /.+\.md/)
-  puts "ataru: #{file_name} is not a markdown file."
+  puts "ataru: #{file_name} is not a markdown file"
   puts "ataru: markdown file required"
   exit 2 
 elsif File.file?(file_name) == false
-  puts "ataru: file not found"
+  puts "ataru: #{file_name} file not found"
   exit 3
 end
 end
 
 file_names.each do |file_name|
-#load_file global method from markdown_loader file
-document = load_file(file_name)
-#pulling an array of codespans/code samples from markdown document
-code_samples = Traverser.codespans(document)
-#wrapping code samples in minitest tests
-CodeSamples.add_test_cases(file_name, code_samples)
+  #load_file global method from markdown_loader file
+  document = load_file(file_name)
+  #pulling an array of codespans/code samples from markdown document
+  code_samples = Traverser.codespans(document)
+  #wrapping code samples in minitest tests
+  CodeSamples.add_test_cases(file_name, code_samples)
+  require 'minitest/autorun'
 end
 
 #now minitest has to run, after running it exits and we get the output to the terminal
-#require 'minitest/autorun'
-puts file_names
