@@ -12,6 +12,7 @@ if file_name.nil?
   puts "usage: ataru.rb <filename>"
   exit 1
 elsif !(file_name =~ /.+\.md/)
+  puts "ataru: #{file_name} is not a markdown file."
   puts "ataru: markdown file required"
   exit 2 
 elsif File.file?(file_name) == false
