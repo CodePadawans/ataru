@@ -22,10 +22,10 @@ end
 end
 
 file_names.each do |file_name|
-  #load_file global method from markdown_loader file
-  document = load_file(file_name)
+  #creating kramdown document out of md file
+  kramdown_doc = MarkdownLoader.load_file(file_name)
   #pulling an array of codespans/code samples from markdown document
-  code_samples = Traverser.codespans(document)
+  code_samples = Traverser.codespans(kramdown_doc)
   #wrapping code samples in minitest tests
   CodeSamples.add_test_cases(file_name, code_samples)
   require 'minitest/autorun'
