@@ -2,33 +2,13 @@
 require_relative '../lib/ataru/markdown_loader'
 require_relative '../lib/ataru/traverser'
 require_relative '../lib/ataru/code_samples'
+require_relative '../lib/ataru/argument_checker'
+require_relative '../lib/ataru/application'
 #puts "Welcome to Ataru! Ataru is a tool developed to test your documentation. Please write the name with the  of the markdown file, that you would like to have tested"
 #ARGV is an array which holds, as strings, each argument passed by the shell, so you can access any command line arguments in your Ruby programs via ARGV
-file_names = ARGV
-
-file_names.each do |file_name| 
-if file_name.nil?
-  puts "ataru: please give the file name"
-  puts "usage: ataru.rb <filename>"
-  exit 1
-elsif !(file_name =~ /.+\.md/)
-  puts "ataru: #{file_name} is not a markdown file"
-  puts "ataru: markdown file required"
-  exit 2 
-elsif File.file?(file_name) == false
-  puts "ataru: #{file_name} file not found"
-  exit 3
-end
-end
+file_names = ARGV 
 
 file_names.each do |file_name|
-  #creating kramdown document out of md file
-  kramdown_doc = MarkdownLoader.load_file(file_name)
-  #pulling an array of codespans/code samples from markdown document
-  code_samples = Traverser.codespans(kramdown_doc)
-  #wrapping code samples in minitest tests
-  CodeSamples.add_test_cases(file_name, code_samples)
-  require 'minitest/autorun'
+checked_file = ArgumentChecker.check(file_name)
+Application.run_test_for_file(checked_file)
 end
-
-#now minitest has to run, after running it exits and we get the output to the terminal
