@@ -4,11 +4,7 @@ require_relative '../lib/ataru/traverser'
 require_relative '../lib/ataru/code_samples'
 require_relative '../lib/ataru/argument_checker'
 require_relative '../lib/ataru/application'
-#puts "Welcome to Ataru! Ataru is a tool developed to test your documentation. Please write the name with the  of the markdown file, that you would like to have tested"
-#ARGV is an array which holds, as strings, each argument passed by the shell, so you can access any command line arguments in your Ruby programs via ARGV
-file_names = ARGV 
 
-file_names.each do |file_name|
-checked_file = ArgumentChecker.check(file_name)
-Application.run_test_for_file(checked_file)
+ArgumentChecker.new(ARGV).each do |checked_file|
+  Application.run_test_for_file(checked_file)
 end
