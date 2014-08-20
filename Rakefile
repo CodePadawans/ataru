@@ -1,9 +1,8 @@
 require "bundler/gem_tasks"
+require "rake/testtask"
 
-task :default do
-  result_1 = `ruby test/code_samples_test.rb`
-  puts result_1
-  result_2 = `ruby test/recursion_test.rb`
-  puts result_2
+task :default => :test
+
+Rake::TestTask.new do |t|
+    t.pattern = "test/*.rb"
 end
-

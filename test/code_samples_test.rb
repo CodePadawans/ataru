@@ -5,20 +5,27 @@ require_relative '../lib/ataru/code_samples'
 class CodeSamplesTest < MiniTest::Test
 
   def test_empty_list
-    list = []
-    klass = CodeSamples.add_test_cases(list)
-    assert_equal false, klass.new(nil).methods.include?(:test_0)
+    code_samples = []
+    file_name = "my_test.md"
+    klass = CodeSamples.add_test_cases(file_name, code_samples)
+
+    refute_respond_to klass.new(nil), :test_my_test_0
   end
 
   def test_one_code_example
-    list = ["puts 'Hello world'"]
-    klass = CodeSamples.add_test_cases(list)
-    assert_equal true, klass.new(nil).methods.include?(:test_0)
+    code_samples = ["puts 'Hello world'"]
+    file_name = "my_test.md"
+    klass = CodeSamples.add_test_cases(file_name, code_samples)
+
+    assert_respond_to klass.new(nil), :test_my_test_0
   end
 
   def test_two_code_examples
-    list = ["puts 'blah'", "puts 2 + 5"]
-    klass = CodeSamples.add_test_cases(list)
-    assert_equal true, klass.new(nil).methods.include?(:test_1)
+    code_samples = ["puts 'blah'", "puts 2 + 5"]
+    file_name = "my_test.md"
+    klass = CodeSamples.add_test_cases(file_name, code_samples)
+
+    assert_respond_to klass.new(nil), :test_my_test_0
+    assert_respond_to klass.new(nil), :test_my_test_1
   end
 end
