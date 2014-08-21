@@ -15,9 +15,27 @@ class TestConverterTest < MiniTest::Test
     assert_equal "assert_equal 5, a", converted
   end
 
-  def test_mixed
-    code = "a = 1 + 2\n
-    a == 3"
+  def test_with_line_break
+    code = "a = 1 + 2\na #=> 3"
+    converted = TestConverter.convert(code)
+    assert_equal "assert_equal 3, a", converted
   end
+
+  def test_no_value_before_hash
+    code = "#=> 3"
+    converted = TestConverter.convert(code)
+    assert_equal nil, converted
+  end
+
+  def test_nil_as_parameter
+    code = nil
+    assert_raises(ArgumentError) { TestConverter.convert(code) }
+  end
+
+  # def test_empty_string
+  #   code = ""
+  #   converted = TestConverter.convert(code)
+  #   assert_equal "error", converted
+  # end
 end
 

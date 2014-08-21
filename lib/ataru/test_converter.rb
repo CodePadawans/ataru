@@ -1,6 +1,9 @@
 class TestConverter
 
   def self.convert(code_sample)
+    if code_sample == nil
+      raise ArgumentError
+    end
     before_match = code_sample.match(/(.*) #=>/)
     if before_match == nil 
       return nil
