@@ -9,7 +9,7 @@ class TestConverterTest < MiniTest::Test
     other_then_nil = [:nth_to_convert, code]
     assert_equal other_then_nil, converted
   end
-
+#that should return nth to convert
   def test_one_hash
     code = "a #=> 5"
     converted = TestConverter.convert(code)
