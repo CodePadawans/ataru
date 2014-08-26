@@ -34,10 +34,11 @@ class TestConverterTest < MiniTest::Test
     assert_raises(ArgumentError) { TestConverter.convert(code) }
   end
 
-  # def test_empty_string
-  #   code = ""
-  #   converted = TestConverter.convert(code)
-  #   assert_equal "error", converted
-  # end
+  def test_empty_string
+    code = ""
+    converted = TestConverter.convert(code)
+    other_then_nil = [:warning, code]
+    assert_equal other_then_nil, converted
+  end
 end
 
