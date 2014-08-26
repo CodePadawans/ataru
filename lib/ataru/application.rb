@@ -7,13 +7,14 @@ class Application
     code_samples = Traverser.codespans(kramdown_doc)
 
     code_samples = code_samples.map do |sample|
+      p sample
       result = TestConverter.convert(sample)
       status = result.first
       assertion = result.last
       if status == :ok
-        assertion 
+        sample += assertion 
       end
-      assertion
+      sample 
     end
 
     #wrapping code samples in minitest tests

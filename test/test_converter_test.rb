@@ -9,7 +9,7 @@ class TestConverterTest < MiniTest::Test
     other_then_nil = [:nth_to_convert, code]
     assert_equal other_then_nil, converted
   end
-#that should return nth to convert
+  # TODO that should return nth to convert ? to discuss
   def test_one_hash
     code = "a #=> 5"
     converted = TestConverter.convert(code)
@@ -33,11 +33,11 @@ class TestConverterTest < MiniTest::Test
     code = nil
     assert_raises(ArgumentError) { TestConverter.convert(code) }
   end
-
+# TODO
   def test_empty_string
     code = ""
     converted = TestConverter.convert(code)
-    other_then_nil = [:warning, code]
+    other_then_nil = [:nth_to_convert, code]
     assert_equal other_then_nil, converted
   end
 end
