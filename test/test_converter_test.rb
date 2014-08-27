@@ -10,19 +10,19 @@ class TestConverterTest < MiniTest::Test
     assert_equal other_then_nil, converted
   end
   # TODO that should return nth to convert ? to discuss
-  def test_one_hash
+  def test_hash_without_context
     code = "a #=> 5"
     converted = TestConverter.convert(code)
     assert_equal [:ok, "assert_equal 5, a"], converted
   end
 
-  def test_with_line_break
+  def test_hash_with_context
     code = "a = 1 + 2\na #=> 3"
     converted = TestConverter.convert(code)
     assert_equal [:ok, "assert_equal 3, a"], converted
   end
 
-  def test_no_value_before_hash
+  def test_no_value_before_hash_no_context
     code = "#=> 3"
     converted = TestConverter.convert(code)
     other_then_nil = [:warning, code]
@@ -33,11 +33,11 @@ class TestConverterTest < MiniTest::Test
     code = nil
     assert_raises(ArgumentError) { TestConverter.convert(code) }
   end
-# TODO
+
   def test_empty_string
     code = ""
     converted = TestConverter.convert(code)
-    other_then_nil = [:nth_to_convert, code]
+    other_then_nil = [:warning, code]
     assert_equal other_then_nil, converted
   end
 end
