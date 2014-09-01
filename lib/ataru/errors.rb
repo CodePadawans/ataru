@@ -1,0 +1,3 @@
+class AtaruError < StandardError
+end
+

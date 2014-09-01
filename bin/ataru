@@ -3,6 +3,7 @@ require_relative '../lib/ataru/markdown_loader'
 require_relative '../lib/ataru/traverser'
 require_relative '../lib/ataru/code_samples'
 require_relative '../lib/ataru/argument_checker'
+require_relative '../lib/ataru/test_converter'
 require_relative '../lib/ataru/application'
 
 ArgumentChecker.new(ARGV).each do |checked_file|
