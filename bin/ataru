@@ -1,11 +1,8 @@
 #!/usr/bin/env ruby
-require_relative '../lib/ataru/markdown_loader'
-require_relative '../lib/ataru/traverser'
-require_relative '../lib/ataru/code_samples'
-require_relative '../lib/ataru/argument_checker'
-require_relative '../lib/ataru/test_converter'
-require_relative '../lib/ataru/application'
+$: << File.expand_path(File.dirname(__FILE__) + "/../lib")
+p $:
+require 'ataru'
 
-ArgumentChecker.new(ARGV).each do |checked_file|
-  Application.run_test_for_file(checked_file)
+Ataru::ArgumentChecker.new(ARGV).each do |checked_file|
+  Ataru::Application.run_test_for_file(checked_file)
 end
