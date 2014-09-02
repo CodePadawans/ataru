@@ -4,6 +4,7 @@ require_relative '../lib/ataru/code_samples'
 require_relative '../lib/ataru/errors'
 
 class CodeSamplesTest < MiniTest::Test
+  include Ataru
 
   def test_empty_list
     code_samples = []
