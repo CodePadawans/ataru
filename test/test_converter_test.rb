@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative '../lib/ataru/test_converter'
 
 class TestConverterTest < MiniTest::Test
+  include Ataru
 
   def test_no_hash
     code = "puts 'blah'"
@@ -41,4 +42,3 @@ class TestConverterTest < MiniTest::Test
     assert_equal other_then_nil, converted
   end
 end
-
