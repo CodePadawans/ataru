@@ -44,7 +44,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To run Ataru type:
+```
+ataru gogo FILENAMES (list of markdown files with the correct path, e.g. home/project/foo/bar/bar.md)
+```
 
 ## Contributing
 
