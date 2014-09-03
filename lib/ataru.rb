@@ -7,6 +7,3 @@ require 'ataru/test_converter'
 require 'ataru/application'
 require 'ataru/cli/application'
 
-module Ataru
-# comes here sth?
-end

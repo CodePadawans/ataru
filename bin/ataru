@@ -4,6 +4,3 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
 require 'ataru'
 
 Ataru::CLI::Application.start(ARGV)
-#Ataru::ArgumentChecker.new(ARGV).each do |checked_file|
- # Ataru::Application.run_test_for_file(checked_file)
-#end
