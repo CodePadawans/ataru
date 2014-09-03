@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
-p $:
+
 require 'ataru'
 
-Ataru::ArgumentChecker.new(ARGV).each do |checked_file|
-  Ataru::Application.run_test_for_file(checked_file)
-end
+Ataru::CLI::Application.start(ARGV)
+#Ataru::ArgumentChecker.new(ARGV).each do |checked_file|
+ # Ataru::Application.run_test_for_file(checked_file)
+#end
