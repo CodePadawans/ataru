@@ -3,6 +3,8 @@ require 'kramdown'
 require_relative "../lib/ataru/traverser"
 
 class TraverserTest < Minitest::Test
+  include Ataru
+
   def test_single_codespan
     doc = Kramdown::Document.new("```\nputs 'Hello'\n```", :input => 'GFM')
     assert_equal "puts 'Hello'", Traverser.codespans(doc).first
@@ -27,5 +29,4 @@ class TraverserTest < Minitest::Test
     MARKDOWN
     assert_equal ["puts 'Hello'"], Traverser.codespans(doc)
   end
-
 end
