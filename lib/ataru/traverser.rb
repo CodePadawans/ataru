@@ -10,8 +10,9 @@ module Ataru
     def self.recurse(element)
       code_samples = []
       element.children.each do |child|
-        if child.type == :codespan
-          code_samples << child.value
+        code_elements = [:codeblock, :codespan]
+        if code_elements.include?(child.type)
+          code_samples << child.value.strip
         else
           code_samples += recurse(child)
         end
