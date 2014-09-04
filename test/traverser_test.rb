@@ -3,6 +3,7 @@ require 'kramdown'
 require_relative "../lib/ataru/traverser"
 
 class TraverserTest < Minitest::Test
+
   include Ataru
 
   def test_single_codespan
@@ -16,12 +17,12 @@ class TraverserTest < Minitest::Test
   end
 
   def test_no_codespans
-    doc = Kramdown::Document.new("#Header")
+    doc = Kramdown::Document.new("#Header", :input => 'GFM')
     assert_equal [], Traverser.codespans(doc)
   end
 
   def test_codespan_in_complicated_structure
-    doc = Kramdown::Document.new(<<-MARKDOWN)
+    doc = Kramdown::Document.new <<-MARKDOWN, :input => 'GFM'
   #Header
 
   * list 1
