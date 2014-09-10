@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Code_Padawans"]
   spec.email         = ["hello@code-padawans.de"]
   spec.summary       = %q{A documentation testing tool}
-  spec.description   = %q{A documentation testing tool}
-  spec.homepage      = ""
+  spec.description   = %q{A documentation testing tool, for documentation in Markdown files, for Ruby code}
+  spec.homepage      = "https://github.com/CodePadawans/ataru"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -23,4 +23,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "kramdown"
   spec.add_development_dependency "thor"
+
+  spec.add_runtime_dependency "minitest"
+  spec.add_runtime_dependency "kramdown"
+  spec.add_runtime_dependency "thor"
 end
