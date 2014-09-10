@@ -6,4 +6,3 @@ require 'ataru/argument_checker'
 require 'ataru/test_converter'
 require 'ataru/application'
 require 'ataru/cli/application'
-
