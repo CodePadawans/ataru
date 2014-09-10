@@ -21,17 +21,42 @@ The user has to be aware of the following:
 
 2. Ataru uses Kramdown with Github Flavoured Markdown Parser. That means ataru reads GFM files. 
 
-3. If there are any dependencies needed for the code samples in the documentation files to run properly, the user has to provide a separate setup file. Please read the Setup chapter below for more information.
+3. If there are any dependencies needed for the code samples in the documentation files to run properly, the user has to provide a separate
+setup file. Please read the Setup chapter below for more information.
 
-##Setup
+## Workflow
+
+1. Add ataru to your Gemfile.
+
+2. Go to your application folder and execute:
+
+    $ bundle
+
+3. Execute:
+
+    $ bundle exec ataru setup
+
+4. Execute:
+
+    $ bundle exec ataru gogo [pass here your Markdown files, with a proper path, separated by empty space]
+
+5. Check the results.
+
+## Setup
 
 For ataru to test not self-contained code, the user has to provide a specific setup file. It contains all the dependencies. The content of 
 the setup file depends on the kind of application/ gem to be tested.
 
-###Using generator for the setup file
+### Using generator for the setup file
 
-Ataru provides the user with an easy to use generator for creating the setup file. The generator enables collecting all important information
-in an easy way. When the generator process is finished, the setup file is automatically created and ready to pass to ataru. 
+Ataru provides the user with an easy to use generator for creating the setup file. The generator enables collecting all important informati
+on in an easy way. When the generator process is finished, the setup file is automatically created and ready to be automatically passed to
+ataru.
+Execute:
+
+    & bundle exec ataru setup
+
+Open created file in your text editor and write down all the dependencies needed for the code snippets.
 
 ## Installation
 
@@ -57,14 +82,14 @@ ataru gogo FILENAMES (list of Markdown files with the correct path, e.g. home/pr
 ```
 ###How to use ataru with Travis CI
 
-You can integrate ataru in your continuous integration process. All you need is to add atatu to your Rakefile.
+You can integrate ataru in your continuous integration process. All you need is to add ataru to your Rakefile.
 
 ```
 here comes code snippet
 ```
 
 
-## Contributin important information
+## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/ataru/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
