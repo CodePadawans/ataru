@@ -5,16 +5,15 @@ module Ataru
       #creating kramdown doc out of md file
       kramdown_doc = MarkdownLoader.load_file(file_name)
       #pulling an array of codespans/code samples from markdown document
-      code_samples = Traverser.codespans(kramdown_doc)
+      code_samples = Traverser.new(kramdown_doc, file_name).code_samples
 
       code_samples = code_samples.map do |sample|
-        result = TestConverter.convert(sample)
-        status = result.first
-        assertion = result.last
+        status, assertion = TestConverter.convert(sample)
+
         if status == :ok
-          sample += assertion 
+          sample += assertion
         end
-        sample 
+        sample
       end
 
       #wrapping code samples in minitest tests
