@@ -3,16 +3,16 @@ module Ataru
 
     def self.convert(code_sample)
 
-      if code_sample == nil
+      if code_sample.nil?
         raise ArgumentError
       end
 
-      if code_sample.size == 0
+      if code_sample.code == nil || code_sample.code.size == 0
         return [:warning, code_sample]
       end
 
-      before_match = code_sample.match(/(.*) #=>/)
-      after_match = code_sample.match(/#=> (.*)/)
+      before_match = code_sample.code.match(/(.*) #=>/)
+      after_match = code_sample.code.match(/#=> (.*)/)
 
       if before_match == nil && after_match == nil
         return [:nth_to_convert, code_sample]

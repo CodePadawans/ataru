@@ -4,14 +4,17 @@ require_relative 'errors'
 require_relative 'code_sample'
 
 module Ataru
-  class TestMethodBuilder
+  class TestClassBuilder
+    attr_accessor :code_samples
 
-    def initialize
+    def initialize(code_samples)
+      self.code_samples = code_samples
     end
 
-    def build_test_methods(code_samples)
+    def build_test_class
+      samples = code_samples
       klass = Class.new(MiniTest::Test) do
-        code_samples.each_with_index do |sample, index|
+        samples.each_with_index do |sample, index|
           basename = Pathname.new(sample.file).basename(".*").to_s
           define_method("test_#{basename}_#{index}") do
             begin

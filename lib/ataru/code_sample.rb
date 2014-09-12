@@ -8,6 +8,7 @@ module Ataru
     end
 
     def ==(other)
+      self.class == other.class &&
       self.file == other.file &&
         self.code == other.code
     end

@@ -17,7 +17,7 @@ module Ataru
       end
 
       #wrapping code samples in minitest tests
-      TestMethodBuilder.build_test_methods(file_name, code_samples)
+      TestClassBuilder.new(code_samples).build_test_class
       require 'minitest/autorun'
     end
   end
