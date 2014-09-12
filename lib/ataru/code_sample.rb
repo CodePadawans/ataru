@@ -2,7 +2,7 @@ module Ataru
   class CodeSample
     attr_accessor :code, :file
 
-    def initialize(code)
+    def initialize(code, file)
       self.code = code
       self.file = file
     end
