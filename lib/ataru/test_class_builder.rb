@@ -1,20 +1,27 @@
 require 'minitest'
 require 'pathname'
 require_relative 'errors'
+require_relative 'code_sample'
 
 module Ataru
-  class CodeSamples
+  class TestClassBuilder
+    attr_accessor :code_samples
 
-    def self.add_test_cases(file_name, code_samples)
-      basename = Pathname.new(file_name).basename(".*").to_s
+    def initialize(code_samples)
+      self.code_samples = code_samples
+    end
+
+    def build_test_class
+      samples = code_samples
       klass = Class.new(MiniTest::Test) do
-        code_samples.each_with_index do |sample, index|
+        samples.each_with_index do |sample, index|
+          basename = Pathname.new(sample.file).basename(".*").to_s
           define_method("test_#{basename}_#{index}") do
-            begin   
-              eval(sample)
+            begin
+              sample.run
             rescue StandardError => e
               raise AtaruError.new("In the file: #{basename}, the code sample number: #{index} is raising an error: " + e.inspect)
-            end   
+            end
           end
         end
       end

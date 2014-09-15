@@ -1,9 +1,9 @@
 require 'ataru/version'
 require 'ataru/markdown_loader'
 require 'ataru/traverser'
-require 'ataru/code_samples'
+require 'ataru/code_sample'
 require 'ataru/argument_checker'
 require 'ataru/test_converter'
+require 'ataru/test_class_builder'
 require 'ataru/application'
 require 'ataru/cli/application'
-
