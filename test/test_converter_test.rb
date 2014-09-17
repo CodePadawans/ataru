@@ -11,20 +11,39 @@ class TestConverterTest < MiniTest::Test
     assert_equal other_then_nil, converted
   end
 
-  def test_hash_without_context
-    code_sample = CodeSample.new("a #=> 5", "test.md",2)
+  def test_hash_without_context_hash_without_space
+    code_sample = CodeSample.new("a #=> 5", "test.md", 2)
     converted = TestConverter.convert(code_sample)
     assert_equal [:ok, "assert_equal 5, a"], converted
   end
 
-  def test_hash_with_context
+  def test_hash_without_context_hash_with_space
+    code_sample = CodeSample.new("a # => 5", "test.md", 2)
+    converted = TestConverter.convert(code_sample)
+    assert_equal [:ok, "assert_equal 5, a"], converted
+  end
+
+  def test_hash_with_context_hash_without_space
     code_sample = CodeSample.new("a = 1 + 2\na #=> 3", "test.md", 2)
+    converted = TestConverter.convert(code_sample)
+    assert_equal [:ok, "assert_equal 3, a"], converted
+  end
+
+  def test_hash_with_context_hash_with_space
+    code_sample = CodeSample.new("a = 1 + 2\na # => 3", "test.md", 2)
     converted = TestConverter.convert(code_sample)
     assert_equal [:ok, "assert_equal 3, a"], converted
   end
 
   def test_no_value_before_hash_no_context
     code_sample = CodeSample.new("#=> 3", "test.md", 2)
+    converted = TestConverter.convert(code_sample)
+    other_then_nil = [:warning, code_sample]
+    assert_equal other_then_nil, converted
+  end
+
+  def test_no_value_before_hash_no_context_hash_with_space
+    code_sample = CodeSample.new("# => 3", "test.md", 2)
     converted = TestConverter.convert(code_sample)
     other_then_nil = [:warning, code_sample]
     assert_equal other_then_nil, converted
