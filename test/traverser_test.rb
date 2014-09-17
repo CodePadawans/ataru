@@ -8,12 +8,12 @@ class TraverserTest < Minitest::Test
 
   def test_single_codespan
     doc = Kramdown::Document.new("```ruby\nputs 'Hello'\n```", :input => 'GFM')
-    assert_equal CodeSample.new("puts 'Hello'", "test.md"), Traverser.new(doc, "test.md").code_samples.first
+    assert_equal CodeSample.new("puts 'Hello'", "test.md", 2), Traverser.new(doc, "test.md").code_samples.first
   end
 
   def test_multiple_codespans
     doc = Kramdown::Document.new("```ruby\nputs 'Hello'\n```\n```ruby\nputs 'Goodbye!'\n```", :input => 'GFM')
-    assert_equal [CodeSample.new("puts 'Hello'", "test.md"), CodeSample.new("puts 'Goodbye!'", "test.md")], Traverser.new(doc, "test.md").code_samples
+    assert_equal [CodeSample.new("puts 'Hello'", "test.md", 2), CodeSample.new("puts 'Goodbye!'", "test.md", 5)], Traverser.new(doc, "test.md").code_samples
 
   end
 
@@ -33,6 +33,6 @@ class TraverserTest < Minitest::Test
 puts 'Hello'
 ```
 MARKDOWN
-    assert_equal [CodeSample.new("puts 'Hello'", "test.md")], Traverser.new(doc, "test.md").code_samples
+    assert_equal [CodeSample.new("puts 'Hello'", "test.md", 7)], Traverser.new(doc, "test.md").code_samples
   end
 end

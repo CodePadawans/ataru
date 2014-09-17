@@ -23,7 +23,8 @@ module Ataru
       element.children.each do |child|
         if CODE_ELEMENTS.include?(child.type)
           if child.attr["class"] == language
-            code_samples << CodeSample.new(child.value.strip, file_name)
+            line_number = child.options[:location] + 1
+            code_samples << CodeSample.new(child.value.strip, file_name, line_number)
           end
         else
           code_samples += walk_tree(child)
