@@ -17,8 +17,9 @@ module Ataru
         self.prepared_code == other.prepared_code
     end
 
-    def run
-      eval(self.prepared_code, binding, self.file, self.line_number)
+
+    def run(b)
+      eval(self.prepared_code, b, self.file, self.line_number)
     end
   end
 end
