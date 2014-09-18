@@ -8,9 +8,10 @@ class CodeSampleTest < MiniTest::Test
   end
 
   def test_run_with_file_name_and_line_number
-    code = CodeSample.new("1\n raise CodeSampleTest::TestException.new('bad stuff')", "test.md", 1)
+    code = CodeSample.new("1\n raise TestException.new('bad stuff')", "test.md", 1)
+    b = binding
     begin
-      code.run
+      code.run(b)
     rescue TestException => e
       e.backtrace.first
       file_name = e.backtrace.first.split(":").first

@@ -15,8 +15,8 @@ module Ataru
         self.line_number == other.line_number
     end
 
-    def run
-      eval(self.code, binding, self.file, self.line_number)
+    def run(b)
+      eval(self.code, b, self.file, self.line_number)
     end
   end
 end
