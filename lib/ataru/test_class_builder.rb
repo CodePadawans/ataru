@@ -20,7 +20,7 @@ module Ataru
             begin
               sample.run
             rescue StandardError => e
-              raise AtaruError.new("In the file: #{basename}, the code sample number: #{index} is raising an error: " + e.inspect)
+              raise AtaruError.new("In the file: #{sample.file}, in line: #{sample.line_number}, the code sample number: #{index} is raising an error:" + e.inspect)
             end
           end
         end
