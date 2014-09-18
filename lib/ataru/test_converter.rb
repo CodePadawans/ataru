@@ -11,7 +11,7 @@ module Ataru
         return [:warning, code_sample]
       end
 
-code_sample.prepared_code = code_sample.code.gsub(/(\S+) # ?=> (.+)/, 'assert_equal \2, \1')
+code_sample.prepared_code = code_sample.code.gsub(/(\S+) # ?=> (\S+)/, 'assert_equal \2, \1')
 
 
 
