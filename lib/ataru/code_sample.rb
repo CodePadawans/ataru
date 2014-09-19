@@ -15,6 +15,10 @@ module Ataru
         self.line_number == other.line_number
     end
 
+    def prepared_code
+      @prepared_code ||= TestConverter.convert(self.code)
+    end
+
     def run(b)
       eval(self.prepared_code, b, self.file, self.line_number)
     end
