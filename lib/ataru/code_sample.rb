@@ -10,12 +10,10 @@ module Ataru
 
     def ==(other)
       self.class == other.class &&
-      self.file == other.file &&
+        self.file == other.file &&
         self.code == other.code &&
-        self.line_number == other.line_number &&
-        self.prepared_code == other.prepared_code
+        self.line_number == other.line_number
     end
-
 
     def run(b)
       eval(self.prepared_code, b, self.file, self.line_number)
