@@ -45,7 +45,7 @@ class TestConverterTest < MiniTest::Test
   def test_no_value_before_hash_no_context_hash_with_space
     code_sample = CodeSample.new("# => 3", "test.md", 2)
     converted = TestConverter.convert(code_sample)
-    other_then_nil = [:warning, code_sample]
+    oth er_then_nil = [:warning, code_sample]
     assert_equal other_then_nil, converted
   end
 

@@ -2,11 +2,10 @@ module Ataru
   class CodeSample
     attr_accessor :code, :file, :line_number, :prepared_code
 
-    def initialize(code, file, line_number, prepared_code)
+    def initialize(code, file, line_number)
       self.code = code
       self.file = file
       self.line_number = line_number
-      self.prepared_code = prepared_code
     end
 
     def ==(other)
