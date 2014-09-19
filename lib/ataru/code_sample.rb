@@ -1,6 +1,6 @@
 module Ataru
   class CodeSample
-    attr_accessor :code, :file, :line_number
+    attr_accessor :code, :file, :line_number, :prepared_code
 
     def initialize(code, file, line_number)
       self.code = code
@@ -10,13 +10,17 @@ module Ataru
 
     def ==(other)
       self.class == other.class &&
-      self.file == other.file &&
+        self.file == other.file &&
         self.code == other.code &&
         self.line_number == other.line_number
     end
 
+    def prepared_code
+      @prepared_code ||= TestConverter.convert(self.code)
+    end
+
     def run(b)
-      eval(self.code, b, self.file, self.line_number)
+      eval(self.prepared_code, b, self.file, self.line_number)
     end
   end
 end

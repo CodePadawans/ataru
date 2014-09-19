@@ -20,7 +20,6 @@ module Ataru
 
             b = binding
 
-
             begin
               sample.run(b)
             rescue StandardError => e
