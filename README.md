@@ -29,15 +29,15 @@ setup file. Please read the Setup section below for more information.
 
 2. Go to your application folder and execute:
 
-    $ bundle
+    `$ bundle`
 
 3. If you need an ataru compatible setup file (see Setup section) execute:
 
-    $ bundle exec ataru setup
+    `$ bundle exec ataru setup`
 
 4. Execute:
 
-    $ bundle exec ataru gogo [pass here your Markdown files, with a proper path, separated by empty space]
+    `$ bundle exec ataru gogo` [pass here your Markdown files, with proper path, separated by empty space]
 
 5. Check the results.
 
@@ -51,7 +51,7 @@ created and ready to be automatically passed to ataru.
 
 If you need an ataru compatible setup file execute:
 
-    $ bundle exec ataru setup
+    `$ bundle exec ataru setup`
 
 Open created file in your text editor and write down all the dependencies needed for the code snippets.
 
@@ -61,4 +61,4 @@ Open created file in your text editor and write down all the dependencies needed
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+5. Create new Pull Request`
