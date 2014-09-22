@@ -51,7 +51,7 @@ created and ready to be automatically passed to ataru.
 
 If you need an ataru compatible setup file execute:
 
-    `$ bundle exec ataru setup`
+    $ bundle exec ataru setup
 
 Open created file in your text editor and write down all the dependencies needed for the code snippets.
 
