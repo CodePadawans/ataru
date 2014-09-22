@@ -37,9 +37,27 @@ setup file. Please read the Setup section below for more information.
 
 4. Execute:
 
-    `$ bundle exec ataru gogo` [pass here your Markdown files, with proper path, separated by empty space]
+    `$ bundle exec ataru check [your Markdown files, with proper path, separated by empty space]`
 
 5. Check the results.
+
+## Workflow with Travis CI
+
+1. Add ataru to your Gemfile.
+
+2. In your .travis.yml file add...
+
+- in case you want to check all the markdown files from your project:
+
+    `script:
+     - bundle exec rake build
+     - bundle exec rake ataru check`
+
+- in case you want to check only specific markdown files from your project:
+
+    `script:
+     - bundle exec rake build
+     - bundle exec rake ataru check [your Markdown files, with proper path, separated by empty space]`
 
 ## Setup
 
