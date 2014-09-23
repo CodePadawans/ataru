@@ -43,11 +43,11 @@ The output of the results has the MiniTest style.
 
   - in case you want to check all the markdown files from your project:
 
-    `$ bundle exec ataru check`
+  `$ bundle exec ataru check`
 
   - in case you want to check only specific markdown files from your project:
 
-    `$ bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md`
+  `$ bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md`
 
 5. Check the results.
 
@@ -67,19 +67,19 @@ The output of the results has the MiniTest style.
 
   - in case you want to check all the markdown files from your project:
 
-    ```
-    script:
-     - bundle exec rake build
-     - bundle exec rake ataru check
-     ```
+  ```
+  script:
+  - bundle exec rake build
+  - bundle exec rake ataru check
+  ```
 
   - in case you want to check only specific markdown files from your project:
 
-    ```
-    script:
-     - bundle exec rake build
-     - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
-     ```
+  ```
+  script:
+  - bundle exec rake build
+  - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
+  ```
 
 5. Now you can commit and push the changes to github.
 
