@@ -23,19 +23,19 @@ setup file. Please read the Setup section below for more information.
 - kramdown (~> 1)
 - thor (~> 0)
 
-## Workflow
+## Usage as command-line tool
 
-1. Add ataru to your Gemfile.
+1. Add ataru to your project Gemfile.
 
-2. Go to your application folder and execute:
+2. From the top level of your project execute:
 
-    `$ bundle`
+    `$ bundle install`
 
-3. If you need an ataru compatible setup file (see Setup section) execute:
+3. To create the setup file (for more info read Setup section) execute:
 
     `$ bundle exec ataru setup`
 
-4. Execute:
+4. Finally, execute:
 
     `$ bundle exec ataru check [your Markdown files, with proper path, separated by empty space]`
 
@@ -43,35 +43,49 @@ setup file. Please read the Setup section below for more information.
 
 ## Workflow with Travis CI
 
-1. Add ataru to your Gemfile.
+1. Add ataru to your project Gemfile.
 
-2. In your .travis.yml file add...
+2. From the top level of your project execute:
+
+    `$ bundle install`
+
+3. To create the setup file for ataru (for more info read Setup section) execute:
+
+    `$ bundle exec ataru setup`
+
+2. In your .travis.yml file add:
 
 - in case you want to check all the markdown files from your project:
 
-    `script:
+    ```
+    script:
      - bundle exec rake build
-     - bundle exec rake ataru check`
+     - bundle exec rake ataru check
+     ```
 
 - in case you want to check only specific markdown files from your project:
 
-    `script:
+    ```
+    script:
      - bundle exec rake build
-     - bundle exec rake ataru check [your Markdown files, with proper path, separated by empty space]`
+     - bundle exec rake ataru check [your Markdown files, with proper path, separated by empty space]
+     ```
 
 ## Setup
 
-For ataru to test not self-contained code, the user has to provide a specific setup file, which contains all the dependencies. The content
-of the setup file depends on the kind of application/ gem to be tested.
+The setup file has to be created in order to enable ataru to read your project source code and use it for its checks.
+Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the created
+setup file is automatically passed to ataru.
 
-Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the setup file is automatically
-created and ready to be automatically passed to ataru.
+To create the setup file execute:
 
-If you need an ataru compatible setup file execute:
+    `$ bundle exec ataru setup`
+    
+Open created file in your text editor and:
 
-    $ bundle exec ataru setup
-
-Open created file in your text editor and write down all the dependencies needed for the code snippets.
+    `require "your_project_name"`
+    
+Safe the file.    
 
 ## Contributing
 
