@@ -33,19 +33,19 @@ The output of the results has the MiniTest style.
 
 2. From the top level of your project execute:
 
-    `$ bundle install`
+  `$ bundle install`
 
 3. To create the setup file (for more info read Setup section) execute:
 
-    `$ bundle exec ataru setup`
+  `$ bundle exec ataru setup`
 
 4. Finally, execute:
 
-- in case you want to check all the markdown files from your project:
+  - in case you want to check all the markdown files from your project:
 
     `$ bundle exec ataru check`
 
-- in case you want to check only specific markdown files from your project:
+  - in case you want to check only specific markdown files from your project:
 
     `$ bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md`
 
@@ -57,15 +57,15 @@ The output of the results has the MiniTest style.
 
 2. From the top level of your project execute:
 
-    `$ bundle install`
+  `$ bundle install`
 
 3. To create the setup file (for more info read Setup section) execute:
 
-    `$ bundle exec ataru setup`
+  `$ bundle exec ataru setup`
 
 4. In your .travis.yml file add:
 
-- in case you want to check all the markdown files from your project:
+  - in case you want to check all the markdown files from your project:
 
     ```
     script:
@@ -73,7 +73,7 @@ The output of the results has the MiniTest style.
      - bundle exec rake ataru check
      ```
 
-- in case you want to check only specific markdown files from your project:
+  - in case you want to check only specific markdown files from your project:
 
     ```
     script:
@@ -93,14 +93,14 @@ Ataru comes with an easy to use generator for creating that file. When the gener
 setup file is automatically passed to ataru.
 
 To create the setup file execute:
-    
-    $ bundle exec ataru setup
-    
+
+  `$ bundle exec ataru setup`
+
 Open created file in your text editor and write:
-    
-    require "your_project_name"
-    
-Save the file.    
+
+  `require "your_project_name"`
+
+Save the file.
 
 ## Contributing
 
