@@ -6,24 +6,28 @@
 # Ataru
 
 Ataru is a gem that provides a command line tool for testing code samples in the documentation files.
+You can also integrate ataru in your continuous integration process on Travis CI.
+
 Ataru will check if your documentation is still in sync with the application it was written for.
 The output of the results has the MiniTest style.
 
 ## What can ataru check
 
-1. Ataru can read files written in Github Flavoured Markdown, as it uses Kramdown with Github Flavoured Markdown Parser.
+- Ataru can read files written in Github Flavoured Markdown, as it uses Kramdown with Github Flavoured Markdown Parser.
 
-2. Ataru is currently able to test the Ruby code only.
+- Ataru is currently able to test the Ruby code only.
 
-3. If there are any dependencies needed for the code samples in the documentation files to run properly, the user has to provide a separate
-setup file. Please read the Setup section below for more information.
+## Requirements
 
-4. The dependencies of your gem have to be in the range of the latest major versions of:
-- minitest (~> 5)
-- kramdown (~> 1)
-- thor (~> 0)
+- The dependencies of your gem have to be in the range of the latest major versions of:
 
-## Usage as command-line tool
+    - minitest (~> 5)
+    - kramdown (~> 1)
+    - thor (~> 0)
+
+- You need to create the setup file (for more info read Setup section).
+
+## Usage as command line tool
 
 1. Add ataru to your project Gemfile.
 
@@ -37,7 +41,13 @@ setup file. Please read the Setup section below for more information.
 
 4. Finally, execute:
 
-    `$ bundle exec ataru check [your Markdown files, with proper path, separated by empty space]`
+- in case you want to check all the markdown files from your project:
+
+    `$ bundle exec ataru check`
+
+- in case you want to check only specific markdown files from your project:
+
+    `$ bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md`
 
 5. Check the results.
 
@@ -49,11 +59,11 @@ setup file. Please read the Setup section below for more information.
 
     `$ bundle install`
 
-3. To create the setup file for ataru (for more info read Setup section) execute:
+3. To create the setup file (for more info read Setup section) execute:
 
     `$ bundle exec ataru setup`
 
-2. In your .travis.yml file add:
+4. In your .travis.yml file add:
 
 - in case you want to check all the markdown files from your project:
 
@@ -68,8 +78,13 @@ setup file. Please read the Setup section below for more information.
     ```
     script:
      - bundle exec rake build
-     - bundle exec rake ataru check [your Markdown files, with proper path, separated by empty space]
+     - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
      ```
+
+5. Now you can commit and push the changes to github.
+
+6. Check the results of your build. 
+
 
 ## Setup
 
@@ -78,14 +93,14 @@ Ataru comes with an easy to use generator for creating that file. When the gener
 setup file is automatically passed to ataru.
 
 To create the setup file execute:
-
+    
     `$ bundle exec ataru setup`
     
-Open created file in your text editor and:
-
+Open created file in your text editor and write:
+    
     `require "your_project_name"`
     
-Safe the file.    
+Save the file.    
 
 ## Contributing
 
