@@ -33,22 +33,26 @@ The output of the results has the MiniTest style.
 
 2. From the top level of your project execute:
 
-  `$ bundle install`
+  ```sh
+  $ bundle install
+  ```
 
 3. To create the setup file (for more info read Setup section) execute:
-
-  `$ bundle exec ataru setup`
+  ```sh
+  $ bundle exec ataru setup
+  ```
 
 4. Finally, execute:
+    - in case you want to check all the markdown files from your project:
+    
+    ```sh
+    $ bundle exec ataru check
+    ```
+    - in case you want to check only specific markdown files from your project:
 
-  - in case you want to check all the markdown files from your project:
-
-  `$ bundle exec ataru check`
-
-  - in case you want to check only specific markdown files from your project:
-
-  `$ bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md`
-
+    ```sh
+    $ bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
+    ```
 5. Check the results.
 
 ## Workflow with Travis CI
@@ -57,32 +61,30 @@ The output of the results has the MiniTest style.
 
 2. From the top level of your project execute:
 
-  `$ bundle install`
+  ```sh
+  $ bundle install
+  ```
 
 3. To create the setup file (for more info read Setup section) execute:
 
-  `$ bundle exec ataru setup`
+  ```sh
+  $ bundle exec ataru setup
+  ```
 
 4. In your .travis.yml file add:
-
-  - in case you want to check all the markdown files from your project:
-
-  ```
-  script:
-  - bundle exec rake build
-  - bundle exec rake ataru check
-  ```
-
-  - in case you want to check only specific markdown files from your project:
-
-  ```
-  script:
-  - bundle exec rake build
-  - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
-  ```
-
+    - in case you want to check all the markdown files from your project:
+       ```
+      script:
+      - bundle exec rake build
+      - bundle exec rake ataru check
+      ```
+    - in case you want to check only specific markdown files from your project:
+   ```
+      script:
+      - bundle exec rake build
+      - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
+      ```
 5. Now you can commit and push the changes to github.
-
 6. Check the results of your build. 
 
 
@@ -94,11 +96,15 @@ setup file is automatically passed to ataru.
 
 To create the setup file execute:
 
-  `$ bundle exec ataru setup`
+  ```sh
+  $ bundle exec ataru setup
+  ```
 
 Open created file in your text editor and write:
 
-  `require "your_project_name"`
+  ```
+  require "your_project_name"
+  ```
 
 Save the file.
 
