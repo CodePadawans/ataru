@@ -73,17 +73,18 @@ The output of the results has the MiniTest style.
 
 4. In your .travis.yml file add:
     - in case you want to check all the markdown files from your project:
-       ```
+    
+    ```
       script:
       - bundle exec rake build
       - bundle exec rake ataru check
-      ```
+    ```
     - in case you want to check only specific markdown files from your project:
-   ```
-      script:
-      - bundle exec rake build
-      - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
-      ```
+    ```
+    script:
+    - bundle exec rake build
+    - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
+    ```
 5. Now you can commit and push the changes to github.
 6. Check the results of your build. 
 
