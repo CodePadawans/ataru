@@ -94,11 +94,11 @@ setup file is automatically passed to ataru.
 
 To create the setup file execute:
     
-    `$ bundle exec ataru setup`
+    $ bundle exec ataru setup
     
 Open created file in your text editor and write:
     
-    `require "your_project_name"`
+    require "your_project_name"
     
 Save the file.    
 
