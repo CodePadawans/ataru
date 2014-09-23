@@ -27,15 +27,6 @@ module Ataru
         puts "hi dude, change the created ataru_setup.rb file adding your dependencies needed for your code snippets to run"
       end
 
-      # desc "gogo FILENAMES", "Run and validate code samples in given markdown files"
-      # def gogo(*filenames)
-      #   path = Dir.pwd + '/ataru_setup.rb'
-      #   require path if File.exist?(path)
-      #   Ataru::ArgumentChecker.new(filenames).each do |checked_file|
-      #     Ataru::Application.run_test_for_file(checked_file)
-      #   end
-      # end
-
       desc "check", "Check code snippets in all .md files of the project or, if given, specific .md files"
       def check(*filenames)
         if filenames.length == 0
