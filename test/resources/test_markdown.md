@@ -19,7 +19,7 @@ end
 
 a = 10
 b = add2(a)
-assert_equal 11, b
+asert_equal 11, b
 b #=> 11
 ```
 

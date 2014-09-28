@@ -1,6 +1,5 @@
 require 'minitest'
 require 'pathname'
-require_relative 'errors'
 require_relative 'code_sample'
 
 module Ataru
@@ -17,14 +16,7 @@ module Ataru
         samples.each_with_index do |sample, index|
           basename = Pathname.new(sample.file).basename(".*").to_s
           define_method("test_#{basename}_#{index}") do
-
-            b = binding
-
-            begin
-              sample.run(b)
-            rescue StandardError => e
-              raise AtaruError.new("In the file: #{sample.file}, in line: #{sample.line_number}, the code sample number: #{index} is raising an error:" + e.inspect)
-            end
+            sample.run(binding)
           end
         end
       end
