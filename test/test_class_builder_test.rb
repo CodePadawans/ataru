@@ -32,8 +32,12 @@ class TestClassBuilderTest < MiniTest::Test
   def test_invalid_code_sample
     code_samples = [CodeSample.new("a + 1", "my_test.md", 5)]
     klass = TestClassBuilder.new(code_samples).build_test_class
-
-    assert_raises(NameError) { klass.new(@name_of_the_runnable).send(:test_my_test_0) }
+    #rubinius bug https://github.com/rubinius/rubinius/issues/3101
+    exception_class = if RUBY_ENGINE == 'rbx'
+      NoMethodError
+    else
+      NameError
+    end
+    assert_raises(exception_class) { klass.new(@name_of_the_runnable).send(:test_my_test_0) }
   end
-
 end
