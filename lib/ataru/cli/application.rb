@@ -16,7 +16,16 @@ module Ataru
           <<-eos
 # "Please require your project source code, with the correct path"
 
-# require "path_to_your_project_source_code"
+# require 'my_fancy_lib'
+#
+def stupid
+# Do some nice setup that is run before every snippet
+end
+
+ def teardown
+# Do some cleanup that is run after every snippet
+end
+
           eos
         end
         puts "Well done, young Padawan!\nNow, change the created ataru_setup.rb file."
