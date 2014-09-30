@@ -57,9 +57,9 @@ The output of the results has the MiniTest style.
 
 ## Example
 
-If this is a file called eg1.md:
+If this is a file called example.md:
 
-    LOOK AT THE THING
+    SOME TEXT BEFORE
 
     ```ruby
     def bad
@@ -73,6 +73,12 @@ If this is a file called eg1.md:
     bad #=> true
     good #=> true
     ```
+    
+    SOME MORE TEXT
+    
+Check it with ataru:
+
+
 
 ## Workflow with Travis CI
 
@@ -139,12 +145,12 @@ And this is README.md for that fancy project:
     #if you like instance variables define them in #setup
     
     ```ruby
-    assert equal @number + 1, 22
+    assert_equal @number + 1, 22
     ```
     #if you like local variables you can use methods
     
     ```ruby
-    assert equal number + 1, 13
+    assert_equal number + 1, 13
     ```
 
 Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the created
