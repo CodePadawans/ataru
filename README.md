@@ -55,6 +55,49 @@ The output of the results has the MiniTest style.
     ```
 5. Check the results.
 
+## Example
+
+If this is a file called example.md:
+
+    SOME TEXT BEFORE
+
+    ```ruby
+    def bad
+      false
+    end
+
+    def good
+      true
+    end
+
+    bad #=> true
+    good #=> true
+    ```
+    
+    SOME MORE TEXT
+    
+Check it with ataru:
+
+```sh 
+➜  ataru git:(75-setup) ✗ bin/ataru check example.md
+Run options: --seed 33946
+
+# Running:
+
+F
+
+Finished in 0.001232s, 811.9236 runs/s, 811.9236 assertions/s.
+
+  1) Failure:
+#<Class:0x000000033451b8>#test_example_0 [example.md:10]:
+Expected: true
+  Actual: false
+
+1 runs, 1 assertions, 1 failures, 0 errors, 0 skips
+```
+
+
+
 ## Workflow with Travis CI
 
 1. Add ataru to your project Gemfile.
@@ -97,7 +140,36 @@ If you'd like to use instance variables, define them in `setup` method.
 If you'd like to clean up after running tests, write in `teardown` method.
 If you like local variables, you can use methods.
 
-`ataru_setup.rb`
+#### Example
+
+If this is the ataru_setup.rb file for a fancy project:
+
+    #require 'my_fancy_lib'
+    
+    module Setup
+    def setup
+        @number = 21
+    end
+
+    def teardown
+    end    
+
+    def number
+        12
+    end
+    
+And this is README.md for that fancy project:
+
+    #if you like instance variables define them in #setup
+    
+    ```ruby
+    assert_equal @number + 1, 22
+    ```
+    #if you like local variables you can use methods
+    
+    ```ruby
+    assert_equal number + 1, 13
+    ```
 
 Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the created
 setup file is automatically passed to ataru.
