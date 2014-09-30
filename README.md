@@ -155,7 +155,7 @@ If you like local variables, you can use methods (see example below).
 
 #### Example
 
-If this how the ataru_setup.rb file for ataru looks like (listed in development dependencies, next to 'my_fancy_lib`):
+If this how the `ataru_setup.rb` file for ataru looks like (listed in development dependencies, next to `my_fancy_lib`):
 
     require 'my_fancy_lib'
     
