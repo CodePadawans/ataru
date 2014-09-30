@@ -74,7 +74,7 @@ If this is a file called example.md:
     ```
     
 
-which is redered as:
+which renders as:
 
 ```ruby
 def bad
@@ -173,8 +173,6 @@ If this how the `ataru_setup.rb` file for ataru looks like (listed in developmen
     
 And this is README.md for that fancy project:
 
-    some text before snippets
-    
     ```ruby
     assert_equal @number + 1, 22
     ```
@@ -182,21 +180,15 @@ And this is README.md for that fancy project:
     ```ruby
     assert_equal number + 1, 13
     ```
-    some text after snippets
     
 which renders as:
 
-some text before snippets
-    
 ```ruby
 assert_equal @number + 1, 22
 ```
-    
 ```ruby
 assert_equal number + 1, 13
 ```
-some text after snippets
-
 
 Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the created
 setup file is automatically passed to ataru.
