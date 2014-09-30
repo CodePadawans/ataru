@@ -77,7 +77,7 @@ If this is a file called example.md:
     
     SOME MORE TEXT
 
-SOME TEXT BEFORE
+    SOME TEXT BEFORE
 
 ```ruby
 def bad
