@@ -78,6 +78,24 @@ If this is a file called example.md:
     
 Check it with ataru:
 
+```sh 
+➜  ataru git:(75-setup) ✗ bin/ataru check example.md
+Run options: --seed 33946
+
+# Running:
+
+F
+
+Finished in 0.001232s, 811.9236 runs/s, 811.9236 assertions/s.
+
+  1) Failure:
+#<Class:0x000000033451b8>#test_example_0 [example.md:10]:
+Expected: true
+  Actual: false
+
+1 runs, 1 assertions, 1 failures, 0 errors, 0 skips
+```
+
 
 
 ## Workflow with Travis CI
