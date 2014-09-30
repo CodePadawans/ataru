@@ -185,8 +185,7 @@ which renders as:
 
 ```ruby
 assert_equal @number + 1, 22
-```
-```ruby
+
 assert_equal number + 1, 13
 ```
 
