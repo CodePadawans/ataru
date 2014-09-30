@@ -21,9 +21,9 @@ The output of the results has the MiniTest style.
 
 - The dependencies of your gem have to be in the range of the latest major versions of:
 
-    - minitest (~> 5)
-    - kramdown (~> 1)
-    - thor (~> 0)
+    - minitest (~> 5.0)
+    - kramdown (~> 1.0)
+    - thor (~> 0.1)
 
 - You need to create the setup file (for more info read Setup section).
 
@@ -92,6 +92,13 @@ The output of the results has the MiniTest style.
 ## Setup
 
 The setup file has to be created in order to enable ataru to read your project source code and use it for its checks.
+What is more, in that file you can write some setup code, that will be run before (and possibly after) each snippet.
+If you'd like to use instance variables, define them in `setup` method.
+If you'd like to clean up after running tests, write in `teardown` method.
+If you like local variables, you can use methods.
+
+`ataru_setup.rb`
+
 Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the created
 setup file is automatically passed to ataru.
 
@@ -104,7 +111,7 @@ To create the setup file execute:
 Open created file in your text editor and write:
 
   ```
-  require "your_project_name"
+  require 'my_fancy_lib'
   ```
 
 Save the file.
