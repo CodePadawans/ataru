@@ -60,8 +60,6 @@ It checks the Ruby syntax and implements assertions (`assert_equal`) in place of
 
 If this is a file called example.md:
 
-    SOME TEXT BEFORE
-
     ```ruby
     def bad
       false
@@ -75,9 +73,8 @@ If this is a file called example.md:
     good #=> true
     ```
     
-    SOME MORE TEXT
 
-SOME TEXT BEFORE
+which is redered as:
 
 ```ruby
 def bad
@@ -95,7 +92,7 @@ good #=> true
 Check it with ataru:
 
 ```sh 
-➜  ataru git:(75-setup) ✗ bin/ataru check example.md
+ $ ataru check example.md
 Run options: --seed 33946
 
 # Running:
@@ -158,9 +155,9 @@ If you like local variables, you can use methods (see example below).
 
 #### Example
 
-If this is the ataru_setup.rb file for a fancy project:
+If this how the ataru_setup.rb file for ataru looks like (listed in development dependencies, next to 'my_fancy_lib`):
 
-    #require 'my_fancy_lib'
+    require 'my_fancy_lib'
     
     module Setup
     def setup
@@ -176,16 +173,30 @@ If this is the ataru_setup.rb file for a fancy project:
     
 And this is README.md for that fancy project:
 
-    #if you like instance variables define them in #setup
+    some text before snippets
     
     ```ruby
     assert_equal @number + 1, 22
     ```
-    #if you like local variables you can use methods
     
     ```ruby
     assert_equal number + 1, 13
     ```
+    some text after snippets
+    
+which renders as:
+
+some text before snippets
+    
+```ruby
+assert_equal @number + 1, 22
+```
+    
+```ruby
+assert_equal number + 1, 13
+```
+some text after snippets
+
 
 Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the created
 setup file is automatically passed to ataru.
