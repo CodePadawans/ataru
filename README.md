@@ -16,6 +16,7 @@ The output of the results has the MiniTest style.
 - Ataru can read files written in Github Flavoured Markdown, as it uses Kramdown with Github Flavoured Markdown Parser.
 
 - Ataru is currently able to test the Ruby code only.
+It checks the Ruby syntax and implements assertions (`assert_equal`) when it finds `#=>` or `# =>`.
 
 ## Requirements
 
@@ -25,7 +26,7 @@ The output of the results has the MiniTest style.
     - kramdown (~> 1.0)
     - thor (~> 0.1)
 
-- You need to create the setup file (for more info read Setup section).
+- In most cases, you need to create the setup file (for more info read Setup section).
 
 ## Usage as command line tool
 
@@ -75,6 +76,21 @@ If this is a file called example.md:
     ```
     
     SOME MORE TEXT
+
+SOME TEXT BEFORE
+
+```ruby
+def bad
+  false
+end
+
+def good
+  true
+end
+
+bad #=> true
+good #=> true
+```
     
 Check it with ataru:
 
