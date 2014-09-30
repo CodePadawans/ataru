@@ -16,7 +16,7 @@ The output of the results has the MiniTest style.
 - Ataru can read files written in Github Flavoured Markdown, as it uses Kramdown with Github Flavoured Markdown Parser.
 
 - Ataru is currently able to test the Ruby code only.
-It checks the Ruby syntax and implements assertions (`assert_equal`) when it finds `#=>` or `# =>`.
+It checks the Ruby syntax and implements assertions (`assert_equal`) in place of `#=>` and `# =>`.
 
 ## Requirements
 
@@ -151,10 +151,10 @@ Expected: true
 ## Setup
 
 The setup file has to be created in order to enable ataru to read your project source code and use it for its checks.
-What is more, in that file you can write some setup code, that will be run before (and possibly after) each snippet.
+What is more, in that file you can write some setup code, that will be run before (and after, shall you want that) each snippet.
 If you'd like to use instance variables, define them in `setup` method.
-If you'd like to clean up after running tests, write in `teardown` method.
-If you like local variables, you can use methods.
+If you'd like to clean up after running tests, write your clean up code in `teardown` method.
+If you like local variables, you can use methods (see example below).
 
 #### Example
 
