@@ -171,7 +171,7 @@ This is `ataru_setup.rb` file for an imaginary gem `my_fancy_lib`, where instanc
         12
     end
     
-That allows us to use them in the code snippets in `README.md` file:
+which allows us to use them in the code snippets in `README.md` file:
 
     ```ruby
     assert_equal @number + 1, 22
@@ -181,7 +181,6 @@ That allows us to use them in the code snippets in `README.md` file:
     assert_equal number + 1, 13
     ```
     
-
 Ataru comes with an easy to use generator for creating the setup file. When the generator process is finished, created
 file is automatically passed to ataru.
 
