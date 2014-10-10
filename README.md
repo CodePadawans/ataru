@@ -58,7 +58,7 @@ It checks the Ruby syntax and implements assertions (`assert_equal`) in place of
 
 ## Example
 
-If this is a file called example.md:
+If this is a file called `example.md`:
 
     ```ruby
     def bad
@@ -127,7 +127,7 @@ Expected: true
   $ bundle exec ataru setup
   ```
 
-4. In your .travis.yml file add:
+4. In your `.travis.yml` file add:
     - in case you want to check all the markdown files from your project:
     
     ```
@@ -155,7 +155,7 @@ If you like local variables, you can use methods (see example below).
 
 #### Example
 
-If this how the `ataru_setup.rb` file for ataru looks like (listed in development dependencies, next to `my_fancy_lib`):
+This is `ataru_setup.rb` file for an imaginary gem `my_fancy_lib`, where instance and local variables `@number` and `number` are defined:
 
     require 'my_fancy_lib'
     
@@ -171,7 +171,7 @@ If this how the `ataru_setup.rb` file for ataru looks like (listed in developmen
         12
     end
     
-And this is README.md for that fancy project:
+That allows us to use them in the code snippets in `README.md` file:
 
     ```ruby
     assert_equal @number + 1, 22
@@ -181,16 +181,9 @@ And this is README.md for that fancy project:
     assert_equal number + 1, 13
     ```
     
-which renders as:
 
-```ruby
-assert_equal @number + 1, 22
-
-assert_equal number + 1, 13
-```
-
-Ataru comes with an easy to use generator for creating that file. When the generator process is finished, the created
-setup file is automatically passed to ataru.
+Ataru comes with an easy to use generator for creating the setup file. When the generator process is finished, created
+file is automatically passed to ataru.
 
 To create the setup file execute:
 
@@ -198,13 +191,8 @@ To create the setup file execute:
   $ bundle exec ataru setup
   ```
 
-Open created file in your text editor and write:
-
-  ```
-  require 'my_fancy_lib'
-  ```
-
-Save the file.
+Open created file in your text editor, do your requires and, optionally, write some setup code.
+Save the file. 
 
 ## Contributing
 
