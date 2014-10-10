@@ -43,7 +43,9 @@ end
       desc "check", "Check code snippets in all .md files of the project or, if given, specific .md files"
       def check(*filenames)
         if filenames.length == 0
-          filenames = Dir.glob('**/*md')
+          filenames = Dir.glob('**/*md').reject do |filename|
+            filename.include? 'vendor'
+          end
         end
         path = Dir.pwd + '/ataru_setup.rb'
         require path if File.exist?(path)
