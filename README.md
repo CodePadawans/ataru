@@ -161,14 +161,14 @@ This is `ataru_setup.rb` file for an imaginary gem `my_fancy_lib`, where instanc
     
     module Setup
     def setup
-        @number = 21
+      @number = 21
     end
 
     def teardown
     end    
 
     def number
-        12
+      12
     end
     
 which allows us to use them in the code snippets in `README.md` file:

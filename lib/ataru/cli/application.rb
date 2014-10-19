@@ -12,8 +12,7 @@ module Ataru
 
       desc "setup", "Create the setup file containing all dependencies for running code snippets"
       def setup
-        create_file(Dir.pwd + "/ataru_setup.rb") do
-          <<-eos
+        create_file(File.join(Dir.pwd, "ataru_setup.rb"), <<-EOS)
 # "Require your project source code, with the correct path"
 
 # require 'my_fancy_lib'
@@ -35,8 +34,7 @@ end
 # end
 
 end
-          eos
-        end
+EOS
         puts "Well done, young Padawan!\nNow, change the created ataru_setup.rb file."
       end
 
