@@ -157,19 +157,21 @@ If you like local variables, you can use methods (see example below).
 
 This is `ataru_setup.rb` file for an imaginary gem `my_fancy_lib`, where instance and local variables `@number` and `number` are defined:
 
-    require 'my_fancy_lib'
-    
-    module Setup
-    def setup
-      @number = 21
-    end
+```ruby
+require 'my_fancy_lib'
 
-    def teardown
-    end    
+module Setup
+def setup
+  @number = 21
+end
 
-    def number
-      12
-    end
+def teardown
+end    
+
+def number
+  12
+end
+```
     
 which allows us to use them in the code snippets in `README.md` file:
 
