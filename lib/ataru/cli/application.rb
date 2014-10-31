@@ -12,20 +12,36 @@ module Ataru
 
       desc "setup", "Create the setup file containing all dependencies for running code snippets"
       def setup
-        create_file(Dir.pwd + "/ataru_setup.rb") do
-          <<-eos
-# "Please require your project source code, with the correct path"
+        create_file(File.join(Dir.pwd, "ataru_setup.rb"), <<-EOS)
+# "Require your project source code, with the correct path"
 
-# require "path_to_your_project_source_code"
-          eos
-        end
+# require 'my_fancy_lib'
+
+module Setup
+def setup
+# Do some nice setup that is run before every snippet
+# If you'd like to use instance variables define them here, e.g
+#  @important_variable_i_will_use_in_my_code_snippets = true
+end
+
+def teardown
+# Do some cleanup that is run after every snippet
+end
+
+# If you like local variables you can define methods, e.g
+# def number_of_wishes
+#  101
+# end
+
+end
+EOS
         puts "Well done, young Padawan!\nNow, change the created ataru_setup.rb file."
       end
 
       desc "check", "Check code snippets in all .md files of the project or, if given, specific .md files"
       def check(*filenames)
         if filenames.length == 0
-          filenames = Dir.glob('**/*md')
+          filenames = Dir.glob('**/*md') - Dir.glob("vendor/**/*.md")
         end
         path = Dir.pwd + '/ataru_setup.rb'
         require path if File.exist?(path)
