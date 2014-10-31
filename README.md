@@ -23,8 +23,8 @@ It checks the Ruby syntax and implements assertions (`assert_equal`) in place of
 - The dependencies of your gem have to be in the range of the latest major versions of:
 
     - minitest (~> 5.0)
-    - kramdown (~> 1.0)
-    - thor (~> 0.1)
+    - kramdown (~> 1.3)
+    - thor (~> 0.19.0)
 
 - In most cases, you need to create the setup file (for more info read Setup section).
 
