@@ -21,9 +21,9 @@ The output of the results has the MiniTest style.
 
 - The dependencies of your gem have to be in the range of the latest major versions of:
 
-    - minitest (~> 5)
-    - kramdown (~> 1)
-    - thor (~> 0)
+    - minitest (~> 5.0.0)
+    - kramdown (~> 1.3.0)
+    - thor (~> 0.19.0)
 
 - You need to create the setup file (for more info read Setup section).
 
