@@ -5,7 +5,7 @@ require 'ataru/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ataru"
-  spec.version       = "0.1.0"
+  spec.version       = "0.2.0"
   spec.authors       = ["Code_Padawans"]
   spec.email         = ["hello@code-padawans.de"]
   spec.summary       = %q{A documentation testing tool}
