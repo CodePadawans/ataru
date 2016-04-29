@@ -161,15 +161,16 @@ This is `ataru_setup.rb` file for an imaginary gem `my_fancy_lib`, where instanc
 require 'my_fancy_lib'
 
 module Setup
-def setup
-  @number = 21
-end
-
-def teardown
-end    
-
-def number
-  12
+  def setup
+    @number = 21
+  end
+  
+  def teardown
+  end    
+  
+  def number
+    12
+  end
 end
 ```
     
@@ -197,8 +198,8 @@ Save the file.
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/ataru/fork )
+1. Fork it (i.e. http://github.com/<my-github-username>ataru/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request`
+5. Create new Pull Request
