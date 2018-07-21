@@ -1,7 +1,4 @@
-| Project         | Ataru
-|:----------------|:--------------------------------------------------
-| CI              | [![Build Status](https://travis-ci.org/CodePadawans/ataru.svg?branch=master)](https://travis-ci.org/CodePadawans/ataru)
-| Gem Version     | [![Gem Version](https://badge.fury.io/rb/ataru.svg)](http://badge.fury.io/rb/ataru)
+[![Build Status](https://travis-ci.com/mvz/ataru.svg?branch=master)](https://travis-ci.com/mvz/ataru)
 
 # Ataru
 
@@ -24,7 +21,7 @@ It checks the Ruby syntax and implements assertions (`assert_equal`) in place of
 
     - minitest (~> 5.0)
     - kramdown (~> 1.3)
-    - thor (~> 0.19.0)
+    - thor (~> 0.20.0)
 
 - In most cases, you need to create the setup file (for more info read Setup section).
 
@@ -45,7 +42,7 @@ It checks the Ruby syntax and implements assertions (`assert_equal`) in place of
 
 4. Finally, execute:
     - in case you want to check all the markdown files from your project:
-    
+
     ```sh
     $ bundle exec ataru check
     ```
@@ -72,7 +69,6 @@ If this is a file called `example.md`:
     bad #=> true
     good #=> true
     ```
-    
 
 which renders as:
 
@@ -88,10 +84,10 @@ end
 bad #=> true
 good #=> true
 ```
-    
+
 Check it with ataru:
 
-```sh 
+```sh
  $ ataru check example.md
 Run options: --seed 33946
 
@@ -129,7 +125,6 @@ Expected: true
 
 4. In your `.travis.yml` file add:
     - in case you want to check all the markdown files from your project:
-    
     ```
       script:
       - bundle exec rake build
@@ -142,7 +137,7 @@ Expected: true
     - bundle exec ataru check PROJECT_ROOT/foo/bar/filename_1.md PROJECT_ROOT/foo/bar/filename_2.md
     ```
 5. Now you can commit and push the changes to github.
-6. Check the results of your build. 
+6. Check the results of your build.
 
 
 ## Setup
@@ -166,23 +161,23 @@ def setup
 end
 
 def teardown
-end    
+end
 
 def number
   12
 end
 ```
-    
+
 which allows us to use them in the code snippets in `README.md` file:
 
     ```ruby
     assert_equal @number + 1, 22
     ```
-    
+
     ```ruby
     assert_equal number + 1, 13
     ```
-    
+
 Ataru comes with an easy to use generator for creating the setup file. When the generator process is finished, created
 file is automatically passed to ataru.
 
@@ -193,11 +188,11 @@ To create the setup file execute:
   ```
 
 Open created file in your text editor, do your requires and, optionally, write some setup code.
-Save the file. 
+Save the file.
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/ataru/fork )
+1. Fork it ( http://github.com/ataru/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
