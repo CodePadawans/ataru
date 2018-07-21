@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "minitest", "~> 5.0"
   spec.add_runtime_dependency "kramdown", "~> 1.3"
-  spec.add_runtime_dependency "thor", "~> 0.19.0"
+  spec.add_runtime_dependency "thor", "~> 0.20.0"
 end
